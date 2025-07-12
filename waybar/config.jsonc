@@ -98,6 +98,7 @@
     "custom/wallpaper": {
         "format": "",
         "on-click": "~/Pictures/wallpaper/change.sh 1",
+        "on-click-right": "~/.config/waybar/scripts/wallpaper-select",
         "tooltip": false
     },
     "custom/deepseek": {
