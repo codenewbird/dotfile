@@ -26,6 +26,7 @@
         ]
     }, 
     "temperature": {
+        "thermal-zone": 2,
         "format": " {temperatureC}°C"
     },
     "memory": {

@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = {'clangd', 'pylsp', 'lua_ls', 'rust_analyzer' },
+    ensure_installed = {'clangd', 'pylsp', 'lua_ls', },
 })
 
 local lspconfig = require('lspconfig')
@@ -48,6 +48,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<space>f", function()
         vim.lsp.buf.format({ async = true })
     end, bufopts)
+
 end
 
 -- Configure each language
@@ -66,6 +67,12 @@ lspconfig.clangd.setup({
     on_attach = on_attach,
     cmd = {
         "clangd",
-        "--query-driver=/usr/bin/arm-none-eabi-gcc*,/usr/bin/gcc*,/usr/bin/g++*"
+        "--query-driver=/usr/bin/arm-none-eabi-gcc*,/usr/bin/gcc*,/usr/bin/g++*",
+        "--enable-config"
     }
+})
+
+lspconfig.rust_analyzer.setup({
+    cmd = {"/usr/lib/rustup/bin/rust-analyzer"},
+    on_attach = on_attach,
 })
