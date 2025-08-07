@@ -18,12 +18,13 @@ button {
 	border-width: 5px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 25%;
+	background-size: 20%;
 }
 
 button:focus, button:active, button:hover {
 	background-color: #3700B3;
 	outline-style: none;
+    background-size: 25%;
 }
 
 #lock {
