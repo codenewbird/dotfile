@@ -1,19 +1,19 @@
 #!/usr/bin/bash
 
-if test -s /tmp/curtheme 
+if test -s ./curtheme 
 then
-    curtheme=$(cat /tmp/curtheme)
+    curtheme=$(cat ./curtheme)
     rm $HOME/.config/waybar/colors/color.css;
     if [ "$curtheme" == "dark" ]
     then
         ln -s $HOME/.config/waybar/colors/primary.css $HOME/.config/waybar/colors/color.css
-        echo "primary" > /tmp/curtheme
+        echo "primary" > ./curtheme
     else
         ln -s $HOME/.config/waybar/colors/dark.css $HOME/.config/waybar/colors/color.css
-        echo "dark" > /tmp/curtheme
+        echo "dark" > ./curtheme
     fi
 else
-    echo "primary" > /tmp/curtheme
+    echo "primary" > ./curtheme
     ln -s $HOME/.config/waybar/colors/primary.css $HOME/.config/waybar/colors/color.css
 fi
     
