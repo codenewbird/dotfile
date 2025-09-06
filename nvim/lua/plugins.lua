@@ -53,12 +53,23 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim',
-            'sharkdp/fd',
-            'BurntSushi/ripgrep' }
+        'sharkdp/fd',
+        'BurntSushi/ripgrep' }
     },
     'rust-lang/rust.vim',
     'simrat39/rust-tools.nvim',
     -- 调试器
     'mfussenegger/nvim-dap',
-    'rcarriga/nvim-dap-ui'
-})
+    'rcarriga/nvim-dap-ui',
+    -- markdown
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    },
+}
+)
