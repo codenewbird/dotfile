@@ -98,7 +98,7 @@
     },
     "custom/wallpaper": {
         "format": "",
-        "on-click": "$HOME/Pictures/wallpaper/change.sh 1",
+        "on-click": "python $HOME/.config/waybar/scripts/wallpaper-select.py",
         "on-click-right": "$HOME/.config/waybar/scripts/wallpaper-select",
         "tooltip": false
     },
