@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = {'clangd', 'pylsp', 'lua_ls', },
+    ensure_installed = { 'clangd', 'pylsp', 'lua_ls', },
 })
 
 local lspconfig = require('lspconfig')
@@ -46,9 +46,10 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set("n", "<space>f", function()
-        vim.lsp.buf.format({ async = true })
+        vim.lsp.buf.format({
+            async = true
+        })
     end, bufopts)
-
 end
 
 -- Configure each language
@@ -56,7 +57,7 @@ end
 -- 1. use `:Mason` to install corresponding LSP
 -- 2. add configuration below
 lspconfig.pylsp.setup({
-	on_attach = on_attach,
+    on_attach = on_attach,
 })
 
 lspconfig.lua_ls.setup({
@@ -73,6 +74,6 @@ lspconfig.clangd.setup({
 })
 
 lspconfig.rust_analyzer.setup({
-    cmd = {"/usr/lib/rustup/bin/rust-analyzer"},
+    cmd = { "/usr/lib/rustup/bin/rust-analyzer" },
     on_attach = on_attach,
 })
