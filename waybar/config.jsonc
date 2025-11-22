@@ -1,9 +1,23 @@
 {
     "position": "top",
     "modules-left": ["hyprland/workspaces", "cpu","memory","temperature","custom/wallpaper","custom/theme","custom/deepseek"],
+    //niri "modules-left": ["niri/workspaces", "cpu","memory","temperature","custom/wallpaper","custom/theme","custom/deepseek"],
     "modules-center": ["clock", "idle_inhibitor"],
-    "modules-right": ["network", "bluetooth", "battery", "tray", "custom/scratchpad-indicator", "backlight", "pulseaudio", "custom/power"],
+    "modules-right": ["network", "bluetooth", "battery", "tray", "backlight", "pulseaudio", "custom/power"],
 
+    "niri/workspaces": {
+        "format": "{index}",
+        "format-icons": {
+        // Named workspaces
+        // (you need to configure them in niri)
+        "browser": "",
+        "discord": "",
+        "chat": "<b></b>",
+        // Icons by state
+        "active": "",
+        "default": ""
+        }
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
