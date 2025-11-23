@@ -345,6 +345,26 @@ window-rule {
     clip-to-geometry true
     open-maximized true
 }
+//wechat
+window-rule {
+    match app-id="wechat"
+    exclude title="微信"
+    open-floating true
+}
+
+// qq
+window-rule {
+    match app-id="QQ"
+    exclude title="QQ"
+    open-floating true
+}
+
+//steam
+window-rule {
+    match app-id="steam"
+    exclude title="Steam"
+    open-floating true
+}
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {

@@ -18,19 +18,17 @@ require("lazy").setup({
         "onsails/lspkind.nvim",
         event = { "VimEnter" },
     },
-    -- Auto-completion engine
+    -- AI
     {
-        "hrsh7th/nvim-cmp",
+        "Exafunction/windsurf.nvim",
         dependencies = {
-            "lspkind.nvim",
-            "hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
-            "hrsh7th/cmp-buffer", -- buffer auto-completion
-            "hrsh7th/cmp-path", -- path auto-completion
-            "hrsh7th/cmp-cmdline", -- cmdline auto-completion
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
         },
         config = function()
-            require("config.nvim-cmp")
-        end,
+            require("codeium").setup({
+            })
+        end
     },
     -- Code snippet engine
     {
@@ -53,8 +51,8 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim',
-        'sharkdp/fd',
-        'BurntSushi/ripgrep' }
+            'sharkdp/fd',
+            'BurntSushi/ripgrep' }
     },
     'rust-lang/rust.vim',
     'simrat39/rust-tools.nvim',
@@ -71,5 +69,20 @@ require("lazy").setup({
         end,
         ft = { "markdown" },
     },
+    -- Auto-completion engine
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "lspkind.nvim",
+            "hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
+            "hrsh7th/cmp-buffer",   -- buffer auto-completion
+            "hrsh7th/cmp-path",     -- path auto-completion
+            "hrsh7th/cmp-cmdline",  -- cmdline auto-completion
+        },
+        config = function()
+            require("config.nvim-cmp")
+        end,
+    },
+
 }
 )
