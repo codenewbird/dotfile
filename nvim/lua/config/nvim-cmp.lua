@@ -66,6 +66,7 @@ cmp.setup({
                 luasnip = '[Luasnip]',
                 buffer = '[File]',
                 path = '[Path]',
+                codeium = "[codeium]",
             })[entry.source.name]
             return vim_item
         end,

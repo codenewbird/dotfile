@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-curthemefile=~/.config/waybar/scripts/curtheme
+curthemefile=~/.config/waybar/scripts/.curtheme
 
 if test -s $curthemefile 
 then
