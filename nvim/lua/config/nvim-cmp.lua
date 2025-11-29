@@ -75,10 +75,10 @@ cmp.setup({
 
     -- Set source precedence
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' }, -- For nvim-lsp
-        { name = 'luasnip' },  -- For luasnip user
-        { name = 'buffer' },   -- For buffer word completion
-        { name = 'path' },     -- For path completion
-        { name = "codeium" },
+        { name = 'nvim_lsp', priority = 3}, -- For nvim-lsp
+        { name = 'luasnip', priority = 1},  -- For luasnip user
+        { name = 'buffer', priority = 2},   -- For buffer word completion
+        { name = 'path', priority = 4},     -- For path completion
+        { name = "codeium", priority = 5},
     })
 })

@@ -83,6 +83,6 @@ require("lazy").setup({
             require("config.nvim-cmp")
         end,
     },
-
+    "Civitasv/cmake-tools.nvim",
 }
 )

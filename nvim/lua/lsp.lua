@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'clangd', 'pylsp', 'lua_ls', },
+    ensure_installed = { 'clangd', 'pylsp', 'lua_ls', 'cmake', 'glsl_analyzer' },
 })
 
 local lspconfig = require('lspconfig')
@@ -64,13 +64,28 @@ lspconfig.lua_ls.setup({
     on_attach = on_attach,
 })
 
+lspconfig.cmake.setup({
+    on_attach = on_attach,
+    cmd = { "cmake-language-server" },
+    filetypes = { "cmake" },
+    root_markers = { "CMakePresets.json", "CTestConfig.cmake", ".git", "build", "cmake" },
+    init_options = {
+        buildDirectory = "build",
+    },
+
+})
+
 lspconfig.clangd.setup({
     on_attach = on_attach,
     cmd = {
         "clangd",
         "--query-driver=/usr/bin/arm-none-eabi-gcc*,/usr/bin/gcc*,/usr/bin/g++*",
         "--enable-config"
-    }
+    },
+})
+
+lspconfig.glsl_analyzer.setup({
+    on_attach = on_attach,
 })
 
 lspconfig.rust_analyzer.setup({

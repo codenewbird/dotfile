@@ -288,6 +288,15 @@ layer-rule {
 //    baba-is-float true
 }
 
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace=r#"wallpaper"#
+    match at-startup=true
+    place-within-backdrop false
+}
+
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -297,6 +306,7 @@ layer-rule {
 spawn-sh-at-startup "source ~/.config/waybar/scripts/alter-config-niri.sh && waybar && hypridle"
 spawn-sh-at-startup "source ~/.config/hypr/Scripts/wallpaper-engine-start.sh"
 spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
+spawn-sh-at-startup "swayidle -w timeout 300 'hyprlock'"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
