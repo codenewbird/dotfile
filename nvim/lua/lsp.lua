@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'clangd', 'pylsp', 'lua_ls', 'cmake', 'glsl_analyzer' },
+    ensure_installed = { 'clangd', 'pylsp', 'lua_ls', 'cmake', 'glsl_analyzer', 'rust_analyzer' },
 })
 
 local lspconfig = require('lspconfig')
@@ -89,6 +89,11 @@ lspconfig.glsl_analyzer.setup({
 })
 
 lspconfig.rust_analyzer.setup({
-    cmd = { "/usr/lib/rustup/bin/rust-analyzer" },
     on_attach = on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = { allFeatures = true },
+            procMacro = { enable = true },
+        },
+    },
 })

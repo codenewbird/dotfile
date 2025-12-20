@@ -5,7 +5,7 @@ local function setup_rust()
   -- 配置 rust-tools
   local rt = require("rust-tools")
   
-  local rust_analyzer_path = '/usr/lib/rustup/bin/rust-analyzer'
+  local rust_analyzer_path = '/usr/bin/rust-analyzer'
 
   rt.setup({
     server = {
