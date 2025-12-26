@@ -1,6 +1,6 @@
 {
     "position": "top",
-        "modules-left": ["hyprland/workspaces", "cpu","memory","temperature","custom/wallpaper","custom/theme","custom/ai-chat"],
+        "modules-left": ["hyprland/workspaces", "cpu","memory","temperature","custom/wallpaper","custom/theme","custom/ai-chat","custom/weather"],
         //"modules-left": ["niri/workspaces", "cpu","memory","temperature","custom/wallpaper","custom/theme","custom/ai-chat"],
         "modules-center": ["clock", "idle_inhibitor"],
         "modules-right": ["network", "bluetooth", "battery", "tray", "backlight", "pulseaudio", "custom/power"],
@@ -115,6 +115,12 @@
         "on-click": "python $HOME/.config/waybar/scripts/wallpaper-select.py",
         "on-click-right": "$HOME/.config/waybar/scripts/wallpaper-select",
         "tooltip": false
+    },
+    "custom/weather": {
+        "exec": "$HOME/.config/waybar/scripts/weather.sh",
+        "interval": "600",
+        "format": "{text}",
+        "return-type": "json"
     },
     "custom/theme": {
         "format": "󰔎",
