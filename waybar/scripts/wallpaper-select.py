@@ -422,9 +422,9 @@ class WallpaperEngine(QMainWindow):
         """获取筛选后的壁纸列表"""
         filtered = self.wallpapers.copy()
 
-        # 类型筛选
+        # 类型筛选（不区分大小写）
         if self.current_filter != "all":
-            filtered = [w for w in filtered if w['type'] == self.current_filter]
+            filtered = [w for w in filtered if w['type'].lower() == self.current_filter]
 
         # 搜索筛选
         search_text = self.search_input.text().lower()
@@ -461,7 +461,8 @@ class WallpaperEngine(QMainWindow):
             0: "all",
             1: "scene",
             2: "web",
-            3: "video"
+            3: "video",
+            4: "other"
         }
 
         if row in type_map:
@@ -471,7 +472,7 @@ class WallpaperEngine(QMainWindow):
                 self.display_wallpapers()
 
                 # 更新标题
-                titles = ["全部壁纸", "场景壁纸", "网页壁纸", "视频壁纸"]
+                titles = ["全部壁纸", "场景壁纸", "网页壁纸", "视频壁纸", "其他壁纸"]
                 self.panel_title.setText(f"{titles[row]} ({len(self.get_filtered_wallpapers())} 个)")
 
     def on_filter_changed(self, text):
